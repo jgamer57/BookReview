@@ -38,6 +38,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'factory_bot_rails'
+  gem 'guard-rspec'
+  # Install a pre-commit hook to enforce code checks before commits
+  gem 'pre-commit'
+  gem 'rspec-activemodel-mocks'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.0'
 end
@@ -49,6 +55,19 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  # makes it easy to programatically simulate users' interactions
+  gem 'capybara', '~> 2.4.3'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'faker'
+  gem 'launchy', '~> 2.4.2'
+  gem 'selenium-webdriver', '~> 2.43.0'
+  gem 'shoulda-matchers', '~> 2.6.2'
+  gem 'webmock'
+  gem 'rails-controller-testing'
 end
 
 
