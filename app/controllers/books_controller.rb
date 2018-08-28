@@ -4,16 +4,17 @@ class BooksController < ApplicationController
 	def index
 	  @books = Book.all.order('created_at DESC')
 	end
-
+    
+    def show
+	end
+	
 	def new
 	  @book = current_user.books.build
-	end
-
-	def show
+	  @categories = Category.all.map { |c| [c.name, c.id] }
 	end
 
 	def create
-	  @book = current._user.books.build(book_params)
+	  @book = current_user.books.build(book_params)
 
 	  if @book.save
 	  	redirect_to root_path
