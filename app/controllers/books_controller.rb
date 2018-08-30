@@ -24,13 +24,16 @@ class BooksController < ApplicationController
 	end
 
 	def edit
+	  @categories = Category.all.map { |c| [c.name, c.id] }
 	end
 
 	def update
-		if @book.update(book_params)
-			redirect_to book_path(@book)
-		else render 'edit'
-		end
+      @book.category_id = params[:category_id]
+	  if @book.update(book_params)
+		redirect_to book_path(@book)
+	  else 
+	  	render 'edit'
+	  end
 	end
 
 	def destroy
