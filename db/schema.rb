@@ -23,10 +23,6 @@ ActiveRecord::Schema.define(version: 2018_08_31_181537) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "category_id"
-    t.string "book_img_file_name"
-    t.string "book_img_content_type"
-    t.bigint "book_img_file_size"
-    t.datetime "book_img_updated_at"
     t.string "image"
   end
 
