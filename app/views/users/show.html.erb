@@ -1,0 +1,88 @@
+<hr class="">
+<div class="container target">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= image_tag @user.adorable_avatar, size: "280x280", alt: 'this is an alt', class: "img-rounded img-responsive img-full-width" %>
+      <h1 class=""><%= @user.name %></h1>
+
+	  <div>
+    <div class="col-sm-4">
+	    <div class="follow">
+          <% if current_user %>
+      	    <% if @user == current_user %>
+                <%= link_to 'Edit your profile', edit_user_registration_path(@user) %>
+      	    <% else %>
+        		<% end %>
+          <% end %>
+  		</div>
+    </div>
+	  </div>
+    <br>
+	    <br>
+        <!--left col-->
+        <ul class="list-group">
+            <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span><%= @user.created_at.strftime("%b %d, %Y") %></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last seen</strong></span><%= @user.updated_at.strftime("%b %d, %Y") %></li>
+            <% if @user.name.blank?%>
+            <%else %>
+              <li class="list-group-item text-right"><span class="pull-left"><strong class="">Username</strong></span> <%= @user.name %></li>
+            <% end %>
+        </ul>
+
+        <ul class="list-group">
+            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i>
+
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left"><strong class="">Reviews:</strong></span> <%= @user.reviews.count %></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong class="">Followers</strong></span><%= 78 %></li>
+        </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i>
+
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Social Media</div>
+        </div>
+    </div>
+    <div class='col-sm-9'>
+      <div class="panel panel-default">
+          <div class="panel-heading"><%= @user.name %>'s Bio</div>
+          <div class="panel-body">
+            <p>This is where some user bio info cn go. what school, what grade etc...</p>
+          </div>
+      </div>
+
+      <div class="row center-block">
+        <div class="panel panel-default target">
+          <div class="panel-heading" contenteditable="false">Books reviews by: <%= @user.name %>
+            <div class="panel-body">
+              <% @reviews.each_slice(3).to_a.each do |chunk| %>
+
+                <div class='row'>
+                <% chunk.each do |review| %>
+                  <div class="col-md-4 premise-profile big-tagline h5">
+                    <div class='row'>
+                      <div class='col-md-12'>
+                        <a href="/books/<%= review.book.id %>">
+                          <%= image_tag review.book.image_url, size: "50x70", class: "book img-responsive" %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='row'>
+                      <div class='col-md-12'>
+                        <p><%= review.comment.truncate(150) %></p>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                </div>
+              <% end %>
+            </div> <!-- panel-body -->
+          </div>  <!-- panel-heading -->
+        </div>  <!-- panel-->
+      </div>  <!-- row -->
+    </div>
+ </div>
