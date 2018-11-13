@@ -30,13 +30,15 @@ $duration: 30s;
 .ticker-wrap {
 
   position: fixed;
-  top: 60;
+  z-index: -1;
+  top: 80;
   width: 100%;
   overflow: hidden;
   height: 4rem;
   background-color: rgba(#000, 0.9);
   padding-left: 100%;
   box-sizing: content-box;
+  margin-bottom: 40px;
 
   .ticker {
 
