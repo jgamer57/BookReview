@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'simple_form', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'ratyrate'
 gem 'jquery-rails'
