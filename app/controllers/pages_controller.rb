@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 	
-	def twitterfeed
-
+	def twitter
+		render template: "pages/#{params[:page]}"
 	end
 
 end
