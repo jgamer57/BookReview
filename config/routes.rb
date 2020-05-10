@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :books do
   	resources :reviews
   end
+  get '/twitter', to: 'pages#twitterfeed'
   resources :users
   root 'books#index'
 end
